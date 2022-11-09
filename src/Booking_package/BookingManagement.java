@@ -1,8 +1,8 @@
 package Booking_package;
 
 import CommonTask_package.CommonTask;
-import Customer_package.Customer;
 import Customer_package.CustomerManagement;
+import Export_package.*;
 import Flight_package.Flight;
 import Flight_package.FlightManagement;
 
@@ -16,10 +16,9 @@ import java.util.regex.Pattern;
 public class BookingManagement extends CommonTask<Booking> {
     private final String FILE_PATH = "bookings.csv";
     private FlightManagement flightManagement = FlightManagement.getFlightManagement();
-    private List<Flight> flightList = flightManagement.getFlightList();
 
     private CustomerManagement customerManagement = CustomerManagement.getCustomerManagement();
-    private List<Customer> customerList = customerManagement.getCustomerList();
+
     private List<Booking> bookingList;
     private static BookingManagement bookingManagement = new BookingManagement();
 
@@ -131,9 +130,29 @@ public class BookingManagement extends CommonTask<Booking> {
     }
 
     public boolean checkValidEmail(String email) {
-        Pattern pattern = Pattern.compile("/^[\\w-\\.]\\w*@([\\w-]+\\.)+[\\w-]{2,4}$/g");
+        Pattern pattern = Pattern.compile("^[\\w-\\.]\\w+@([\\w-]+\\.)+[\\w-]{2,4}$");
         Matcher matcher = pattern.matcher(email);
         boolean isValidEmail = matcher.matches();
-        return  isValidEmail;
+        return isValidEmail;
+    }
+
+    public void getPayAndSendTicketMethod(String payMethod, String sendTicketMethod) {
+        if (payMethod.equals("PayPal")) {
+            PayMethod payMethod1 = new PayPal();
+            payMethod1.getPayMethod();
+        } else if (payMethod.equals("Credit")) {
+            PayMethod payMethod1 = new CreditDebitCard();
+            payMethod1.getPayMethod();
+        } else if (payMethod.equals("Cash")) {
+            PayMethod payMethod1 = new CashMethod();
+            payMethod1.getPayMethod();
+        }
+        if (sendTicketMethod.equals("EMS")) {
+            SendTicketMethod sendTicketMethod1 = new SendViaEMS();
+            sendTicketMethod1.getSendTicketMethod();
+        } else if (sendTicketMethod.equals("Email")) {
+            SendTicketMethod sendTicketMethod1 = new SendViaEmail();
+            sendTicketMethod1.getSendTicketMethod();
+        }
     }
 }

@@ -201,9 +201,15 @@ public class BookingManagementMenu {
         System.out.println("Export booking by ID");
         Booking searchBooking = searchByID();
         if (searchBooking != null) {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Enter pay method");
+            String payMethod = scanner.nextLine();
+            System.out.println("Enter send ticket method");
+            String sendTicketMethod = scanner.nextLine();
+            System.out.println("Your Booking");
             System.out.println("ID - Flight ID - Name - Phone - Email - Seat - Amount");
             System.out.println(searchBooking);
-            System.out.println("Enter method paying");
+            bookingManagement.getPayAndSendTicketMethod(payMethod, sendTicketMethod);
         } else {
             System.out.println("Not found booking");
         }

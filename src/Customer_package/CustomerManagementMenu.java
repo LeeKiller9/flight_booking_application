@@ -12,9 +12,7 @@ public class CustomerManagementMenu {
         System.out.println("|| 1: Search customer by phone number      ||");
         System.out.println("|| 2: Display all customers                ||");
         System.out.println("|| 3: Display all Gold customer            ||");
-//        System.out.println("|| 4: Display all Silver customer          ||");
-//        System.out.println("|| 5: Display all Bronze customer          ||");
-        System.out.println("|| 6: Display customers who buy the most   ||");
+        System.out.println("|| 4: Display customers who buy the most   ||");
         System.out.println("|| 0: Exit program                         ||");
         System.out.println("=============================================");
     }
@@ -32,9 +30,7 @@ public class CustomerManagementMenu {
                     case 1 -> searchCustomerByPhone();
                     case 2 -> displayAllCustomers();
                     case 3 -> displayGoldCustomers();
-//                    case 4 -> searchFlightByTripAndDate();
-//                    case 5 -> removeFlight();
-                    case 6 -> displayCustomersBuyMost();
+                    case 4 -> displayCustomersBuyMost();
                     case 0 -> saveCustomers();
                 }
             }

@@ -18,7 +18,6 @@ public class FlightManagementMenu {
         System.out.println("|| 4: Search flight by trip and date       ||");
         System.out.println("|| 5: Remove flight by ID                  ||");
         System.out.println("|| 6: Display all flights                  ||");
-//        System.out.println("|| 7: Display flights which choice most    ||");
         System.out.println("|| 0: Exit program                         ||");
         System.out.println("=============================================");
     }
@@ -39,7 +38,6 @@ public class FlightManagementMenu {
                     case 4 -> searchFlightByTripAndDate();
                     case 5 -> removeFlight();
                     case 6 -> displayAllFlights();
-//                    case 7 -> displayFlightChoiceMost();
                     case 0 -> saveFlights();
                 }
             }
